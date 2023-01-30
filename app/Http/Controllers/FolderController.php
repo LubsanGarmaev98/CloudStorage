@@ -43,7 +43,7 @@ class FolderController extends Controller
         /** @var User $user */
         $user = auth()->user();
 
-        $folders = $user->folders();
+        $folders = $user::with(['folders', 'folders.files'])->get();;
 
         return response()->json([
             'data' => $folders

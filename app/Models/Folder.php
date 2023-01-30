@@ -34,4 +34,9 @@ class Folder extends Model
     {
         return $this->size;
     }
+
+    public function files()
+    {
+        return $this->hasOne(File::class, 'folder_id', 'id');
+    }
 }
