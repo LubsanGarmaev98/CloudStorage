@@ -36,8 +36,8 @@ class StoreFileRequest extends FormRequest
                 new MaxSizeDisk(),
                 File::types([])->max(20 * 1024)
             ],
-            'folder_id' => ['sometimes', 'int', 'exists:folders,id'],
-            'die_datetime' => ['sometimes', 'date', 'after:now']
+            'folder_id' => ['nullable', 'int', 'exists:folders,id'],
+            'die_datetime' => ['nullable', 'date', 'after:now']
         ];
     }
 

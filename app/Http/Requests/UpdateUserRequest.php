@@ -26,10 +26,10 @@ class UpdateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'first_name' => ['sametime', 'string'],
-            'second_name' => ['sametime', 'string'],
-            'email' => ['sametime', 'min:8', 'string', 'email', 'unique:users'],
-            'password' => ['sametime', 'min:8']
+            'first_name' => ['nullable', 'string'],
+            'second_name' => ['nullable', 'string'],
+            'email' => ['nullable', 'min:8', 'string', 'email', 'unique:users'],
+            'password' => ['nullable', 'min:8']
         ];
     }
 
