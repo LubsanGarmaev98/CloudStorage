@@ -1,0 +1,414 @@
+{
+	"info": {
+		"_postman_id": "81b49369-6ee6-4251-84bc-6e433a2a0eb6",
+		"name": "Cloud-Storage-Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24169817"
+	},
+	"item": [
+		{
+			"name": "http://cloud-storage.ru/api/signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\": \"Lubsan\",\n    \"second_name\": \"Garmaev\",\n    \"email\": \"lubsan14091998@gmail.com\",\n    \"password\": \"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cloud-storage.ru/api/signup",
+					"protocol": "http",
+					"host": [
+						"cloud-storage",
+						"ru"
+					],
+					"path": [
+						"api",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/api/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"lubsan14091998@gmail.com\",\n    \"password\": \"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/api/login",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/api/files",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2FwaS9sb2dpbiIsImlhdCI6MTY3NDk5NjQ0MywiZXhwIjoxNjc1MDAwMDQzLCJuYmYiOjE2NzQ5OTY0NDMsImp0aSI6ImpNVll4THhkbkY2czhLU0siLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.H1nXZj0gavDTQcgk4lOqgbR4LeALPKALTo6OjOEMxOg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/lubsan/Загрузки/hello.php"
+						},
+						{
+							"key": "folderId",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "die_datetime",
+							"value": "2023-01-31 13:59:48",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/api/files",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"files"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/api/files",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2FwaS9sb2dpbiIsImlhdCI6MTY3NDk5NjQ0MywiZXhwIjoxNjc1MDAwMDQzLCJuYmYiOjE2NzQ5OTY0NDMsImp0aSI6ImpNVll4THhkbkY2czhLU0siLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.H1nXZj0gavDTQcgk4lOqgbR4LeALPKALTo6OjOEMxOg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/lubsan/Загрузки/Гармаев Лубсан Баирович.pdf"
+						},
+						{
+							"key": "folderId",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "die_datetime",
+							"value": "2023-01-31 13:59:48",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/api/files",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"files"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/api/files",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2FwaS9sb2dpbiIsImlhdCI6MTY3NDkxNjMxOCwiZXhwIjoxNjc0OTE5OTE4LCJuYmYiOjE2NzQ5MTYzMTgsImp0aSI6Ik13V2QyVUtRTHFJUXYzY3MiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.imux10vb7TRuWfeQ3uFKz75ENbBmXzcNQh2aLdQ9blc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/api/files",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"files"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/api/files/1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2FwaS9sb2dpbiIsImlhdCI6MTY3NDkyNTQ5MSwiZXhwIjoxNjc0OTI5MDkxLCJuYmYiOjE2NzQ5MjU0OTEsImp0aSI6IkI0b2QzaVpoa2VSUGY0UnMiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.bMEvEW-zdha93gmkOH0JK6Eqtj_28nJqZKFbopcKH9Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/api/files/1",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"files",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/api/folder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2FwaS9sb2dpbiIsImlhdCI6MTY3NDc1NTYyNCwiZXhwIjoxNjc0NzU5MjI0LCJuYmYiOjE2NzQ3NTU2MjQsImp0aSI6IjVuRXRkcW9xaktZMkhtWHkiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.Pym3xE_xHFg0-2G-eBho9ii3yxYiX9RL2hAVdcQAUoA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Новая папка\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/api/folder",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"folder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/api/folder",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost/api/folder",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"folder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/api/folder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2FwaS9sb2dpbiIsImlhdCI6MTY3NDc2NDA0MiwiZXhwIjoxNjc0NzY3NjQyLCJuYmYiOjE2NzQ3NjQwNDIsImp0aSI6ImV0c2xrSkNIRDBrWlBoV3MiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.eLaKvuD_nQ2hPN3IAWKOm7flPSp-MI51nsuaXfZsy4M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/api/folder",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"folder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/api/folders/2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2FwaS9sb2dpbiIsImlhdCI6MTY3NDkwODg3NSwiZXhwIjoxNjc0OTEyNDc1LCJuYmYiOjE2NzQ5MDg4NzUsImp0aSI6Im5IVG9GT2xKTnIyQjRWSjAiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.6CvXu-BWGIJr3YvkFM-y7vWdLxxGi-rvu0TK2EYiccE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/api/folders/2",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"folders",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/api/users/current-files-size",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2FwaS9sb2dpbiIsImlhdCI6MTY3NDkxNjMxOCwiZXhwIjoxNjc0OTE5OTE4LCJuYmYiOjE2NzQ5MTYzMTgsImp0aSI6Ik13V2QyVUtRTHFJUXYzY3MiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.imux10vb7TRuWfeQ3uFKz75ENbBmXzcNQh2aLdQ9blc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/api/users/current-files-size",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"users",
+						"current-files-size"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/api/files/6/public-link",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2FwaS9sb2dpbiIsImlhdCI6MTY3NDkzMDEzMSwiZXhwIjoxNjc0OTMzNzMxLCJuYmYiOjE2NzQ5MzAxMzEsImp0aSI6IlQwbWdnQ3hRaWhydmJiRWsiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.yxWi43tSPTYACk8apqq_vIA9j0a6mlsmj2ROqAuO3K8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/api/files/6/public-link",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"files",
+						"6",
+						"public-link"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
