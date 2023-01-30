@@ -49,8 +49,9 @@ class FileController extends Controller
         /** @var User $user */
         $user = auth()->user();
 
+        $files = $user::with(['files', 'files.folder'])->get();
         return response()->json([
-            'data' => $user::with(['files', 'files.folder'])->get()
+            'data' => $files
         ]);
     }
 
