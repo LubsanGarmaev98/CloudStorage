@@ -13,7 +13,7 @@ class UpdateUserRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -23,10 +23,9 @@ class UpdateUserRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            'id' => ['required' ,'int'],
             'first_name' => ['sametime', 'string'],
             'second_name' => ['sametime', 'string'],
             'email' => ['sametime', 'min:8', 'string', 'email', 'unique:users'],
@@ -43,10 +42,9 @@ class UpdateUserRequest extends FormRequest
         ]));
     }
 
-    public function messages()
+    public function messages(): array
     {
         return [
-            'id.required' => 'Id must be an integer type',
             'email.unique' => 'The user with the specified email address is already registered'
         ];
     }

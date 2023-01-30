@@ -62,7 +62,6 @@ class FolderController extends Controller
         $user = auth()->user();
 
         $folder = Folder::getFolder($user->getId(), $request->id);
-
         if(!$folder instanceof Folder)
         {
             return response()->json([
@@ -72,6 +71,7 @@ class FolderController extends Controller
 
         $nameFolder = $folder->getName();
 
+        //TODO удалить файлы с упоминанием это папки
         $folder->delete();
         $folder->save();
 
@@ -81,7 +81,7 @@ class FolderController extends Controller
     }
 
     /**
-     * Получить папку (получить размер папки внутри директории)
+     * Получить папку, где указан размер всех файлов внутри
      *
      * @param Request $request
      * @return JsonResponse

@@ -16,7 +16,7 @@ class StoreFileRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -26,7 +26,7 @@ class StoreFileRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             'file' => [
@@ -50,7 +50,7 @@ class StoreFileRequest extends FormRequest
         ]));
     }
 
-    public function messages()
+    public function messages(): array
     {
         return [
             'folderId.exists' => 'Папки с таким идентификатором не существует',

@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\DeleteFileRequest;
-use App\Http\Requests\DownloadFileRequest;
 use App\Http\Requests\StoreFileRequest;
 use App\Http\Requests\UpdateFileRequest;
 use App\Http\Services\FileService;
@@ -12,13 +10,13 @@ use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Js;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
 
 class FileController extends Controller
 {
     /**
+     * Загрузка файла
      * Создание нового файла и сохранение в таблицу.
      *
      * @param StoreFileRequest $request
@@ -79,7 +77,7 @@ class FileController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Редактирование файл (переименование).
      *
      * @param  UpdateFileRequest  $request
      * @return JsonResponse
@@ -109,8 +107,9 @@ class FileController extends Controller
      * Удалить файл
      *
      * @param FileService $fileService
-     * @param  Request  $request
+     * @param Request $request
      * @return JsonResponse
+     * @throws \Throwable
      */
     public function delete(Request $request, FileService $fileService): JsonResponse
     {

@@ -1,66 +1,88 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<h1 align="center">Cloud Storage Api</h1>
+  <p> Этот проект реализован с помощью: PHP 8.1, Laravel, CRON.
+ <h2>Описание:</h2>
+  <p> Это облачное хранилище файлов. Для начала необходимо зарегистрироваться и пройти аутентификацию, чтобы получить JWT токен. Пользователь имеет ограниченное хранилище в 100 Мб.
+При загрузке файлов используйте полученный токен. Файл можно загрузить, указать срок хранения, удалить. Создание новых директорий и загрузки в них файлов также поддерживается.
+Генерация уникальной публичной ссылки на файл/p>
+<h2>Функционал сервиса:</h2>
+<ul>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+- Регистрация пользователя, аутентификация и выдача JWT токена
+- Возможность редактировать данные пользователя
+- Пользователь имеет объем диска в 100 Мб
+- Загружать файлы в облачное хранилище, редактировать наименование загруженного файла, а также удалять файл
+- Файл не должен превышать размер в 20 Мб, а также же не допускаются к загрузке файлы с форматом '.php'
+- Возможность просматривать список файлов, скачивать файлы
+- Получать размер всех файлов внутри определенной директории (папки)
 
-## About Laravel
+- Получить размер всех файлов на диске пользователя
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Генерация уникальной публичной ссылки на файл 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Реализована возможность при загрузке указывать срок хранения файла, после которого он сам удаляется
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Создание и удаление папок, файлы можно создавать внутри директории
 
-## Learning Laravel
+</ul>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<h2>API:</h2>
+<ul>
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- POST /api/signup - Регистрация пользователя
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- POST /api/login - Аутентификация пользователя, выдается JWT токен
 
-## Laravel Sponsors
+- POST /api/logout - Выйти из системы
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- PUT /api/users - Редактирование пользователя
 
-### Premium Partners
+- DELETE /api/users- Удаление пользователя
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- POST /api/files - Загрузка файла в облачное хранилище
 
-## Contributing
+- PUT /api/files/{id} - Переименовать файл
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- DELETE /api/files/{id} - Удалить файл
 
-## Code of Conduct
+- GET /api/files/{id} - Скачать файл
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- POST /api/folders - Создание папки
 
-## Security Vulnerabilities
+- GET /api/folders - Получить список папок
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- DELETE /api/folders/{id} - Удалить папку
 
-## License
+- GET /api/folders - Получить размер файлов внутри директории
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- GET /api/users/current-files-size - Получить размер всех файлов на диске пользователя
+
+- GET /api/files/{id}/public-link - Сгенерировать уникальную публичную ссылку
+
+</ul>
+
+<h2> Чтобы запустить проект, выполните следующие шаги:</h2>
+
+1. Создайте контейнеры:
+
+```sail build```
+
+2. Запустите их:
+
+```sail up -d```
+
+3. Проверьте созданные docker-контейнеры:
+
+```sail ps```
+
+4. Зайдите в контейнер php-fpm:
+
+```sail bash```
+
+5. Создайте таблицы:
+
+```sail artisan migrate```
+
+6. Далее можно пользоваться роутами.
+
+7. Готово 😊
+

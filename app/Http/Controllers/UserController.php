@@ -16,7 +16,7 @@ class UserController extends Controller
      * @param  StoreUserRequest  $request
      * @return JsonResponse
      */
-    public function signup(StoreUserRequest $request)
+    public function signup(StoreUserRequest $request): JsonResponse
     {
         $user = User::create([
             'first_name'  => $request->get('first_name'),
@@ -36,7 +36,7 @@ class UserController extends Controller
      * @param  UpdateUserRequest  $request
      * @return JsonResponse
      */
-    public function update(UpdateUserRequest $request)
+    public function update(UpdateUserRequest $request): JsonResponse
     {
         $params = $request->validated();
 
@@ -72,7 +72,7 @@ class UserController extends Controller
      *
      * @return JsonResponse
      */
-    public function delete()
+    public function delete(): JsonResponse
     {
         /** @var User $user */
         $user = auth()->user();
@@ -84,7 +84,12 @@ class UserController extends Controller
         ]);
     }
 
-    public function getCurrentFilesSize()
+    /**
+     * Получить размер всех файлов на диске пользователя
+     *
+     * @return JsonResponse
+     */
+    public function getCurrentFilesSize(): JsonResponse
     {
         /** @var User $user */
         $user = auth()->user();

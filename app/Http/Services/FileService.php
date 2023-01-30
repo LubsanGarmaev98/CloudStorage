@@ -5,13 +5,24 @@ namespace App\Http\Services;
 use App\Models\File;
 use App\Models\Folder;
 use App\Models\User;
-use DateTimeInterface;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Throwable;
 
 class FileService
 {
+
+    /**
+     * Создание объекта класса File, обернутое в транзакцию
+     *
+     * @param User $user
+     * @param UploadedFile $file
+     * @param int|null $folderId
+     * @param string|null $dateTime
+     * @return File
+     * @throws Throwable
+     */
     public function createFile(User $user, UploadedFile $file, int $folderId = null, string $dateTime = null): File
     {
         DB::beginTransaction();
@@ -39,7 +50,7 @@ class FileService
                 ]
             );
             DB::commit();
-        }catch (\Throwable $throwable)
+        }catch (Throwable $throwable)
         {
             DB::rollBack();
             throw $throwable;
@@ -48,6 +59,11 @@ class FileService
         return $file;
     }
 
+    /**
+     * Удаление объекта класса File, обернутое в транзакцию
+     *
+     * @throws Throwable
+     */
     public function deleteFile(User $user, File $file): void
     {
         DB::beginTransaction();
@@ -70,7 +86,7 @@ class FileService
             $file->delete();
 
             DB::commit();
-        }catch (\Throwable $throwable)
+        }catch (Throwable $throwable)
         {
             DB::rollBack();
             throw $throwable;

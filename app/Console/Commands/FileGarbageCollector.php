@@ -7,7 +7,7 @@ use App\Models\File;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Storage;
+use Throwable;
 
 class FileGarbageCollector extends Command
 {
@@ -26,9 +26,9 @@ class FileGarbageCollector extends Command
     protected $description = 'Command description';
 
     /**
-     * Execute the console command.
+     * Удаление истекших срока хранения файлов
      *
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function handle(FileService $fileService)
     {
@@ -48,7 +48,5 @@ class FileGarbageCollector extends Command
                 }
             }
         }
-
-        $this->info('Successfully sent daily quote to everyone');
     }
 }

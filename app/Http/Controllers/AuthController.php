@@ -57,7 +57,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Обновить токен JWT.
+     * Обновить JWT токен.
      *
      * @return JsonResponse
      */
@@ -69,6 +69,7 @@ class AuthController extends Controller
     /**
      * Получить структуру массива токена.
      *
+     * @param $token
      * @return JsonResponse
      */
     protected function respondWithToken($token): JsonResponse
